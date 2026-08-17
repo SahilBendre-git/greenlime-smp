@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<link rel="icon" href="icon.png">
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Delete Profile - GreenLime SMP</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  window.onload = function() {
+    //check if user is logged in
+
+    let auth_token = localStorage.getItem('token')
+    if(auth_token !== null)
+    {
+       //User is logged in
+
+    }
+    else {
+      alert('invalid session')
+      window.location.href = 'join.html'
+    }
+  }
+</script>
+<style>
+::-webkit-scrollbar{
+  width:10px;
+}
+
+::-webkit-scrollbar-thumb{
+  background:#84cc16;
+  border-radius:999px;
+}
+
+body{
+  background:#030804;
+  overflow-x:hidden;
+}
+
+.glass{
+  background:rgba(255,255,255,0.05);
+  backdrop-filter:blur(18px);
+  border:1px solid rgba(255,255,255,0.08);
+}
+
+.glow{
+  box-shadow:0 0 30px rgba(132,204,22,0.25);
+}
+
+.input{
+  width:100%;
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:1rem;
+  padding:14px 16px;
+  outline:none;
+  color:white;
+  transition:.25s;
+}
+
+.input:focus{
+  border-color:#a3e635;
+  box-shadow:0 0 0 4px rgba(163,230,53,.12);
+}
+
+.hero-grid{
+  background-image:
+  linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+  linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size:50px 50px;
+}
+</style>
+
+</head>
+<body class="text-white">
+
+<!-- Background -->
+<div class="absolute top-[-150px] left-[-150px] w-[400px] h-[400px] bg-lime-500/20 blur-[120px] rounded-full"></div>
+
+<div class="absolute bottom-[-200px] right-[-150px] w-[450px] h-[450px] bg-red-500/20 blur-[140px] rounded-full"></div>
+
+<!-- Navbar -->
+<nav class="sticky top-0 z-50 border-b border-white/10 bg-black/30 backdrop-blur-2xl">
+
+  <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+
+    <div class="flex items-center gap-3">
+
+      <div class="w-11 h-11 rounded-2xl bg-lime-400 text-black flex items-center justify-center font-black text-lg glow">
+        G
+      </div>
+
+      <div>
+        <h1 class="text-2xl font-black text-lime-300">
+          GreenLime SMP
+        </h1>
+
+        <p class="text-xs text-white/40">
+          Account Management
+        </p>
+      </div>
+
+    </div>
+
+    <a
+      href="join.html"
+      class="px-5 py-3 rounded-2xl bg-white/5 hover:bg-white/10 transition">
+      ← Back
+    </a>
+
+  </div>
+
+</nav>
+
+<!-- Main -->
+<section class="hero-grid min-h-screen flex items-center justify-center px-6 py-20">
+
+  <div class="max-w-3xl w-full">
+
+    <div class="glass rounded-[2.5rem] p-10 md:p-14 glow">
+
+      <div class="text-center">
+
+        <div class="w-24 h-24 mx-auto rounded-full bg-red-500/10 border border-red-500/20 flex items-center justify-center text-5xl mb-8">
+          ⚠️
+        </div>
+
+        <h1 class="text-4xl md:text-6xl font-black mb-5">
+          Delete Profile
+        </h1>
+
+        <p class="text-white/60 text-lg leading-relaxed max-w-2xl mx-auto">
+          This action is permanent. Your GreenLime SMP account,
+          player information, notifications, and access records
+          will be removed and cannot be recovered.
+        </p>
+
+      </div>
+
+      <div class="mt-12">
+
+        <div class="glass rounded-3xl p-6 border border-red-500/20">
+
+          <h3 class="text-red-400 font-bold text-xl mb-4">
+            What will be deleted?
+          </h3>
+
+          <ul class="space-y-3 text-white/70">
+            <li>• Account Information</li>
+            <li>• Email Address</li>
+            <li>• Username Records</li>
+            <li>• Notification History</li>
+            <li>• Server Access Data</li>
+            <li>• Approval Status</li>
+          </ul>
+
+        </div>
+
+      </div>
+
+      <div class="mt-10">
+
+        <label class="block text-sm text-white/60 mb-3">
+          Type <span class="text-red-400 font-bold">DELETE MY ACCOUNT</span> to continue
+        </label>
+
+        <input
+          id="confirmDelete"
+          class="input"
+          placeholder="DELETE MY ACCOUNT"
+        >
+
+      </div>
+
+      <div class="mt-10 flex flex-col md:flex-row gap-4">
+
+        <button
+          onclick="location.href='join.html'"
+          class="flex-1 py-4 rounded-2xl bg-white/5 hover:bg-white/10 font-semibold transition">
+          Cancel
+        </button>
+
+        <button
+          onclick="deleteProfile()"
+          class="flex-1 py-4 rounded-2xl bg-red-600 hover:bg-red-500 font-bold transition">
+          🗑️ Permanently Delete Profile
+        </button>
+
+      </div>
+
+      <p id="message" class="mt-6 text-center text-sm text-white/50"></p>
+
+    </div>
+
+  </div>
+
+</section>
+<script src="delscript.js"></script>
+<script>
+
+function deleteProfile()
+{
+
+    console.log('Profile deletion intiatied')
+
+  const text =
+    document.getElementById("confirmDelete").value;
+
+  if(text !== "DELETE MY ACCOUNT"){
+    document.getElementById("message").innerHTML =
+      "Please type DELETE MY ACCOUNT exactly.";
+    return;
+  }
+
+  document.getElementById("message").innerHTML =
+    "Deleting profile...";
+
+  /*
+      YOUR DELETE API LOGIC HERE
+
+      fetch(...)
+      .then(...)
+  */
+
+  //get current user token
+
+  if(localStorage.getItem('token')!== null)
+  {
+    //user is logged in. Procceed deletion.
+
+    delprof(localStorage.getItem('token'))
+  
+  }
+  else {
+    alert('invalid session')
+    location.href = 'join.html'
+  }
+
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<link rel="icon" href="icon.png">
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GreenLime SMP - Gallery</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #84cc16;
+      border-radius: 999px;
+    }
+
+    body {
+      overflow-x: hidden;
+    }
+
+    .glass {
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(18px);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .glow {
+      box-shadow: 0 0 30px rgba(132, 204, 22, 0.35);
+    }
+
+    .hero-grid {
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 50px 50px;
+    }
+
+    .gallery-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .gallery-card img {
+      transition: 0.5s ease;
+    }
+
+    .gallery-card:hover img {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+
+<body class="bg-[#030804] text-white relative">
+
+  <!-- Background Glow -->
+  <div class="absolute top-[-150px] left-[-150px] w-[400px] h-[400px] bg-lime-500/20 blur-[120px] rounded-full"></div>
+
+  <div class="absolute bottom-[-200px] right-[-150px] w-[450px] h-[450px] bg-green-500/20 blur-[140px] rounded-full"></div>
+
+  <!-- Navbar -->
+  <nav class="sticky top-0 z-50 border-b border-white/10 bg-black/30 backdrop-blur-2xl">
+
+    <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+
+      <div class="flex items-center gap-3">
+
+        <div class="w-11 h-11 rounded-2xl bg-lime-400 text-black flex items-center justify-center font-black text-lg glow">
+          G
+        </div>
+
+        <div>
+          <h1 class="text-2xl font-black tracking-tight text-lime-300">
+            GreenLime SMP
+          </h1>
+
+          <p class="text-xs text-white/40">
+            Survival • Community • Adventure
+          </p>
+        </div>
+
+      </div>
+
+      <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+        <a href="index.html" class="hover:text-lime-300 transition">Home</a>
+        <a href="About.html" class="hover:text-lime-300 transition">About</a>
+        <a href="gallery.html" class="text-lime-300">Gallery</a>
+        <a href="join.html" class="hover:text-lime-300 transition">Join</a>
+        <a href="Server-det.html" class="hover:text-lime-300 transition">Server</a>
+        <a href="trades.html" class="hover:text-lime-300 transition">Server Trades</a>
+      </div>
+
+    </div>
+
+  </nav>
+
+  <!-- Hero -->
+  <section class="relative hero-grid overflow-hidden">
+
+    <div class="max-w-7xl mx-auto px-6 py-24 lg:py-32">
+
+      <div class="text-center max-w-4xl mx-auto">
+
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-8">
+          <div class="w-2 h-2 rounded-full bg-lime-400 animate-pulse"></div>
+
+          <span class="text-sm text-lime-200">
+            Explore The World Of GreenLime
+          </span>
+        </div>
+
+        <h2 class="text-5xl md:text-7xl font-black leading-tight mb-8">
+          Server
+          <span class="text-lime-400">
+            Gallery
+          </span>
+        </h2>
+
+        <p class="text-lg text-white/60 leading-relaxed max-w-2xl mx-auto">
+          Explore builds, adventures, territories, community projects,
+          and unforgettable moments captured across GreenLime SMP.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- Gallery -->
+  <section class="px-6 pb-28">
+
+    <div class="max-w-7xl mx-auto">
+
+      <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
+
+        <!-- Card -->
+        <div class="gallery-card glass rounded-[2rem] overflow-hidden transition-all duration-500">
+
+          <div class="overflow-hidden">
+            <img
+              src="Gallery-media/Gallery (1).png"
+              class="w-full h-72 object-cover"
+            >
+          </div>
+
+          <div class="p-7">
+
+            <div class="inline-flex px-3 py-1 rounded-full bg-lime-400/10 border border-lime-400/20 text-lime-300 text-xs mb-4">
+              COMMUNITY BUILD
+            </div>
+
+            <h3 class="text-3xl font-black mb-4">
+              Castle
+            </h3>
+
+            <p class="text-white/55 leading-relaxed">
+              A simple cubic house later transformed with a massive castle-style border,
+              becoming a proper fortress where players now reside.
+            </p>
+
+          </div>
+
+        </div>
+
+        <!-- Card -->
+        <div class="gallery-card glass rounded-[2rem] overflow-hidden transition-all duration-500">
+
+          <div class="overflow-hidden">
+            <img
+              src="Gallery-media/Gallery (2).png"
+              class="w-full h-72 object-cover"
+            >
+          </div>
+
+          <div class="p-7">
+
+            <div class="inline-flex px-3 py-1 rounded-full bg-lime-400/10 border border-lime-400/20 text-lime-300 text-xs mb-4">
+              PLAYER CREATION
+            </div>
+
+            <h3 class="text-3xl font-black mb-4">
+              Miniature Village
+            </h3>
+
+            <p class="text-white/55 leading-relaxed">
+              A beautiful mini village built inside the territory by
+              @MR_Gamerest, inspired by enhanced vanilla architecture.
+            </p>
+
+          </div>
+
+        </div>
+
+        <!-- Card -->
+        <div class="gallery-card glass rounded-[2rem] overflow-hidden transition-all duration-500">
+
+          <div class="overflow-hidden">
+            <img
+              src="Gallery-media/Gallery (3).png"
+              class="w-full h-72 object-cover"
+            >
+          </div>
+
+          <div class="p-7">
+
+            <div class="inline-flex px-3 py-1 rounded-full bg-lime-400/10 border border-lime-400/20 text-lime-300 text-xs mb-4">
+              MAIN BASE
+            </div>
+
+            <h3 class="text-3xl font-black mb-4">
+              Mega Base
+            </h3>
+
+            <p class="text-white/55 leading-relaxed">
+              The heart of GreenLime SMP — our massive shared base
+              that players proudly call home.
+            </p>
+
+          </div>
+
+        </div>
+
+        <!-- Card -->
+        <div class="gallery-card glass rounded-[2rem] overflow-hidden transition-all duration-500">
+
+          <div class="overflow-hidden">
+            <img
+              src="Gallery-media/Gallery (4).png"
+              class="w-full h-72 object-cover"
+            >
+          </div>
+
+          <div class="p-7">
+
+            <div class="inline-flex px-3 py-1 rounded-full bg-lime-400/10 border border-lime-400/20 text-lime-300 text-xs mb-4">
+              INDUSTRIAL AREA
+            </div>
+
+            <h3 class="text-3xl font-black mb-4">
+              Fossil Fuel
+            </h3>
+
+            <p class="text-white/55 leading-relaxed">
+              The server’s primary farming and industrial zone,
+              featuring a nether portal and future mining routes.
+            </p>
+
+          </div>
+
+        </div>
+
+        <!-- Card -->
+        <div class="gallery-card glass rounded-[2rem] overflow-hidden transition-all duration-500">
+
+          <div class="overflow-hidden">
+            <img
+              src="Gallery-media/Gallery (6).png"
+              class="w-full h-72 object-cover"
+            >
+          </div>
+
+          <div class="p-7">
+
+            <div class="inline-flex px-3 py-1 rounded-full bg-lime-400/10 border border-lime-400/20 text-lime-300 text-xs mb-4">
+              TERRITORY ACCESS
+            </div>
+
+            <h3 class="text-3xl font-black mb-4">
+              Entry Gate
+            </h3>
+
+            <p class="text-white/55 leading-relaxed">
+              The original gateway leading into the territory —
+              iconic, massive, and rarely used today.
+            </p>
+
+          </div>
+
+        </div>
+
+        <!-- CTA Card -->
+        <div class="glass rounded-[2rem] p-10 flex flex-col justify-center relative overflow-hidden">
+
+          <div class="absolute top-0 right-0 w-52 h-52 bg-lime-400/10 blur-[90px] rounded-full"></div>
+
+          <div class="relative z-10">
+
+            <div class="inline-flex px-3 py-1 rounded-full bg-lime-400/10 border border-lime-400/20 text-lime-300 text-xs mb-5">
+              JOIN GREENLIME
+            </div>
+
+            <h3 class="text-4xl font-black leading-tight mb-5">
+              Want Your Build
+              In The Gallery?
+            </h3>
+
+            <p class="text-white/55 leading-relaxed mb-8">
+              Join GreenLime SMP and create unforgettable builds,
+              stories, and adventures with the community.
+            </p>
+
+            <button
+              onclick="window.location.href='join.html'"
+              class="bg-lime-400 hover:bg-lime-300 text-black font-bold px-8 py-4 rounded-2xl transition-all duration-300 glow"
+            >
+              Join GreenLime SMP
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-white/10 bg-black/40 backdrop-blur-xl">
+
+    <div class="max-w-7xl mx-auto px-6 py-10">
+
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+
+        <div>
+          <h4 class="text-2xl font-black text-lime-300 mb-1">
+            GreenLime SMP
+          </h4>
+
+          <p class="text-white/40 text-sm">
+            © 2026 GreenLime SMP. All rights reserved.
+          </p>
+        </div>
+
+        <div class="text-white/60 text-sm">
+          ~ A Project by
+          <span class="text-white font-semibold">
+            SAHIL BENDRE
+          </span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+</body>
+</html>

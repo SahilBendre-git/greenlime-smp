@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<link rel="icon" href="icon.png">
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About - GreenLime SMP</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #84cc16;
+      border-radius: 999px;
+    }
+
+    body {
+      overflow-x: hidden;
+    }
+
+    .glass {
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(18px);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .glow {
+      box-shadow: 0 0 30px rgba(132, 204, 22, 0.35);
+    }
+
+    .hero-grid {
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 50px 50px;
+    }
+  </style>
+</head>
+
+<body class="bg-[#030804] text-white relative">
+
+  <!-- Background Glow -->
+  <div class="absolute top-[-150px] left-[-150px] w-[400px] h-[400px] bg-lime-500/20 blur-[120px] rounded-full"></div>
+
+  <div class="absolute bottom-[-200px] right-[-150px] w-[450px] h-[450px] bg-green-500/20 blur-[140px] rounded-full"></div>
+
+  <!-- Navbar -->
+  <nav class="sticky top-0 z-50 border-b border-white/10 bg-black/30 backdrop-blur-2xl">
+
+    <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+
+      <div class="flex items-center gap-3">
+
+        <div class="w-11 h-11 rounded-2xl bg-lime-400 text-black flex items-center justify-center font-black text-lg glow">
+          G
+        </div>
+
+        <div>
+          <h1 class="text-2xl font-black tracking-tight text-lime-300">
+            GreenLime SMP
+          </h1>
+
+          <p class="text-xs text-white/40">
+            Survival • Community • Adventure
+          </p>
+        </div>
+
+      </div>
+
+      <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+        <a href="index.html" class="hover:text-lime-300 transition">Home</a>
+        <a href="About.html" class="text-lime-300">About</a>
+        <a href="gallery.html" class="hover:text-lime-300 transition">Gallery</a>
+        <a href="join.html" class="hover:text-lime-300 transition">Join</a>
+        <a href="Server-det.html" class="hover:text-lime-300 transition">Server</a>
+        <a href="trades.html" class="hover:text-lime-300 transition">Server Trades</a>
+      </div>
+
+    </div>
+
+  </nav>
+
+  <!-- Hero -->
+  <section class="relative hero-grid overflow-hidden">
+
+    <div class="max-w-7xl mx-auto px-6 py-28 lg:py-36">
+
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+        <!-- Left -->
+        <div>
+
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-8">
+            <div class="w-2 h-2 rounded-full bg-lime-400 animate-pulse"></div>
+
+            <span class="text-sm text-lime-200">
+              The Story Behind GreenLime SMP
+            </span>
+          </div>
+
+          <h2 class="text-5xl md:text-7xl font-black leading-tight mb-8">
+            More Than
+            <span class="text-lime-400">
+              Survival
+            </span>
+          </h2>
+
+          <p class="text-lg text-white/60 leading-relaxed max-w-2xl mb-10">
+            GreenLime SMP is a semi-vanilla Minecraft experience where
+            creativity, exploration, friendships, and unforgettable stories
+            naturally come to life.
+          </p>
+
+          <div class="flex flex-wrap gap-5">
+
+            <button
+              onclick="window.location.href='join.html'"
+              class="bg-lime-400 hover:bg-lime-300 text-black font-bold px-8 py-4 rounded-2xl transition-all duration-300 glow"
+            >
+              Join Server
+            </button>
+
+            <button
+              onclick="window.location.href='gallery.html'"
+              class="glass hover:border-lime-400/40 px-8 py-4 rounded-2xl transition-all duration-300"
+            >
+              Explore Gallery
+            </button>
+
+          </div>
+
+          <p id="ipText" class="mt-8 text-sm text-white/35">
+            © 2026 GreenLime SMP
+          </p>
+
+        </div>
+
+        <!-- Right Card -->
+        <div class="relative">
+
+          <div class="glass rounded-[2rem] p-8 glow">
+
+            <div class="flex items-center justify-between mb-8">
+
+              <h3 class="text-2xl font-bold">
+                About The SMP
+              </h3>
+
+              <div class="flex items-center gap-2 text-lime-300 text-sm">
+                <div class="w-2 h-2 rounded-full bg-lime-400 animate-pulse"></div>
+                Public
+              </div>
+
+            </div>
+
+            <div class="space-y-5 text-white/65 leading-relaxed">
+
+              <p>
+                GreenLime SMP is a cozy spark of chaos, where chill survival
+                meets bold adventures and stories unfold naturally.
+              </p>
+
+              <p>
+                Running on
+                <span class="text-lime-300 font-semibold">
+                  Java 1.18.2
+                </span>,
+                the server stays true to classic Minecraft while adding
+                featured systems that improve the overall experience.
+              </p>
+
+              <p>
+                Build freely, experiment with redstone, explore massive lands,
+                create lore, form alliances, and simply vibe with others.
+              </p>
+
+              <p>
+                The community is welcoming, fair, and beginner-friendly —
+                competitive when it’s fun, calm when it matters.
+              </p>
+
+              <p>
+                Both premium and cracked players can join because
+                good worlds should be open to everyone.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- Features -->
+  <section class="py-24 px-6">
+
+    <div class="max-w-7xl mx-auto">
+
+      <div class="text-center mb-20">
+
+        <div class="inline-flex px-5 py-2 rounded-full glass text-lime-300 text-sm mb-6">
+          WHAT MAKES US DIFFERENT?
+        </div>
+
+        <h3 class="text-5xl font-black mb-6">
+          The GreenLime Experience
+        </h3>
+
+        <p class="text-white/50 max-w-2xl mx-auto text-lg">
+          A world designed for long-term survival, creativity,
+          and meaningful multiplayer adventures.
+        </p>
+
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+
+        <!-- Card -->
+        <div class="glass rounded-[2rem] p-8 hover:-translate-y-2 transition-all duration-500">
+
+          <div class="w-16 h-16 rounded-2xl bg-lime-400/15 border border-lime-400/20 flex items-center justify-center text-3xl mb-8">
+            🌎
+          </div>
+
+          <h4 class="text-2xl font-bold mb-4">
+            Semi-Vanilla Feel
+          </h4>
+
+          <p class="text-white/55 leading-relaxed">
+            Enhanced gameplay without removing the classic survival charm
+            players love.
+          </p>
+
+        </div>
+
+        <!-- Card -->
+        <div class="glass rounded-[2rem] p-8 hover:-translate-y-2 transition-all duration-500">
+
+          <div class="w-16 h-16 rounded-2xl bg-lime-400/15 border border-lime-400/20 flex items-center justify-center text-3xl mb-8">
+            ⚡
+          </div>
+
+          <h4 class="text-2xl font-bold mb-4">
+            Unique Systems
+          </h4>
+
+          <p class="text-white/55 leading-relaxed">
+            Login systems, advanced anti-cheat, custom features,
+            and transport routes built for immersive gameplay.
+          </p>
+
+        </div>
+
+        <!-- Card -->
+        <div class="glass rounded-[2rem] p-8 hover:-translate-y-2 transition-all duration-500">
+
+          <div class="w-16 h-16 rounded-2xl bg-lime-400/15 border border-lime-400/20 flex items-center justify-center text-3xl mb-8">
+            🤝
+          </div>
+
+          <h4 class="text-2xl font-bold mb-4">
+            Friendly Community
+          </h4>
+
+          <p class="text-white/55 leading-relaxed">
+            A welcoming place where players collaborate, build together,
+            and create unforgettable stories.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CTA -->
+  <section class="px-6 pb-28">
+
+    <div class="max-w-6xl mx-auto">
+
+      <div class="relative overflow-hidden glass rounded-[3rem] p-12 md:p-16">
+
+        <div class="absolute top-0 right-0 w-72 h-72 bg-lime-400/10 blur-[100px] rounded-full"></div>
+
+        <div class="relative z-10 text-center">
+
+          <h3 class="text-4xl md:text-5xl font-black mb-6">
+            Ready To Start Your Journey?
+          </h3>
+
+          <p class="text-white/55 text-lg max-w-2xl mx-auto mb-10">
+            Step into GreenLime SMP and create your own story
+            in a world built for adventure.
+          </p>
+
+          <button
+            onclick="window.location.href='join.html'"
+            class="bg-lime-400 hover:bg-lime-300 text-black font-bold px-10 py-5 rounded-2xl text-lg transition-all duration-300 glow"
+          >
+            Join Now
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-white/10 bg-black/40 backdrop-blur-xl">
+
+    <div class="max-w-7xl mx-auto px-6 py-10">
+
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+
+        <div>
+          <h4 class="text-2xl font-black text-lime-300 mb-1">
+            GreenLime SMP
+          </h4>
+
+          <p class="text-white/40 text-sm">
+            © 2026 GreenLime SMP. All rights reserved.
+          </p>
+        </div>
+
+        <div class="text-white/60 text-sm">
+          ~ A Project by
+          <span class="text-white font-semibold">
+            SAHIL BENDRE
+          </span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+</body>
+</html>

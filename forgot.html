@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<link rel="icon" href="icon.png">
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Forgot Password</title>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
+
+    body {
+        height: 100vh;
+        background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .container {
+        background: #111;
+        padding: 40px;
+        border-radius: 12px;
+        width: 350px;
+        text-align: center;
+        box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    }
+
+    h2 {
+        color: #9eff00;
+        margin-bottom: 10px;
+    }
+
+    p {
+        color: #aaa;
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+
+    input {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 15px;
+        border: none;
+        border-radius: 8px;
+        background: #222;
+        color: #fff;
+        outline: none;
+    }
+
+    input:focus {
+        border: 1px solid #9eff00;
+    }
+
+    button {
+        width: 100%;
+        padding: 12px;
+        background: #9eff00;
+        border: none;
+        border-radius: 8px;
+        color: #000;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    button:hover {
+        background: #7ed600;
+    }
+
+    .message {
+        margin-top: 15px;
+        color: #9eff00;
+        font-size: 14px;
+        display: none;
+    }
+
+    .back {
+        margin-top: 20px;
+        display: block;
+        color: #aaa;
+        font-size: 13px;
+        text-decoration: none;
+    }
+
+    .back:hover {
+        color: #9eff00;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Forgot Password</h2>
+        <p>Enter your email to reset your password</p>
+    <input type="email" id="email" placeholder="Enter your email" required>
+    <input type="password" id="password" placeholder="Select a new password" required>
+    <p id="msg"></p>
+    <button onclick="sendReset()">Request password reset</button>
+
+
+    <a href="join.html" class="back">← Back to Login</a>
+   
+
+    
+</div>
+
+<script>
+function sendReset() {
+    const email = document.getElementById("email").value;
+    let password = document.getElementById("password").value;
+
+    password = btoa(password)
+
+    const errormsg = document.getElementById('msg')
+
+    let newreq = {
+        user_email: email,
+        new_password: password
+    }
+
+    fetch(`https://x8ki-letl-twmt.n7.xano.io/api:0loksVvR/forgot_password_queue`, {
+        method: "POST",
+        headers: {
+            "Content-Type":"application/json"
+        },
+        body: JSON.stringify(newreq)
+    })
+    .then(res => res.json())
+    .then(r => {
+        if(r == 'invalid entry') errormsg.innerText = 'No user is registered with this email.'
+        if(r == 'success') errormsg.innerText = 'Successfully sent your request. Please contact admin for approval'
+    })
+    .catch(error => {
+        console.log(error)
+        alert('An error occured')
+    })
+
+}
+</script>
+
+</body>
+</html>

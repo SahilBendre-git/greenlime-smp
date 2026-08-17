@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<link rel="icon" href="icon.png">
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Join - GreenLime SMP</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="package-uuid.js"></script>
+  <script src="profscript.js"></script>
+
+  <style>
+    ::-webkit-scrollbar{
+      width:10px;
+    }
+
+    ::-webkit-scrollbar-thumb{
+      background:#84cc16;
+      border-radius:999px;
+    }
+
+    body{
+      overflow-x:hidden;
+      background:#030804;
+    }
+
+    .glass{
+      background:rgba(255,255,255,0.05);
+      backdrop-filter:blur(18px);
+      border:1px solid rgba(255,255,255,0.08);
+    }
+
+    .glow{
+      box-shadow:0 0 30px rgba(132,204,22,0.35);
+    }
+
+    .hero-grid{
+      background-image:
+      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size:50px 50px;
+    }
+
+    .tab-active{
+      background:#a3e635;
+      color:black;
+      font-weight:700;
+    }
+
+    .input{
+      width:100%;
+      background:rgba(255,255,255,0.04);
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:1rem;
+      padding:14px 16px;
+      outline:none;
+      transition:0.25s;
+      color:white;
+    }
+
+    .input:focus{
+      border-color:#a3e635;
+      box-shadow:0 0 0 4px rgba(163,230,53,0.12);
+    }
+
+    .dashboard-card{
+      background:rgba(255,255,255,0.04);
+      border:1px solid rgba(255,255,255,0.06);
+      border-radius:1.5rem;
+      padding:24px;
+    }
+
+    @keyframes fadeIn{
+      from{
+        opacity:0;
+        transform:scale(0.95);
+      }
+
+      to{
+        opacity:1;
+        transform:scale(1);
+      }
+    }
+
+    .animate-fadeIn{
+      animation:fadeIn .25s ease;
+    }
+  </style>
+
+  <script>
+    window.onload = checkifloggedinforprofile;
+
+    let auth_token = localStorage.getItem('token')
+
+    function checkifloggedinforprofile()
+    {
+      if(isValidUUID(auth_token) && auth_token !== null)
+        checkuservalidity();
+
+      else if(auth_token !== null)
+      {
+        alert('invalid token, logging out')
+        localStorage.removeItem('token')
+      }
+    }
+  </script>
+</head>
+
+<body class="text-white relative">
+
+  <!-- Background Glow -->
+  <div class="absolute top-[-150px] left-[-150px] w-[400px] h-[400px] bg-lime-500/20 blur-[120px] rounded-full"></div>
+
+  <div class="absolute bottom-[-200px] right-[-150px] w-[450px] h-[450px] bg-green-500/20 blur-[140px] rounded-full"></div>
+
+  <!-- Navbar -->
+  <nav class="sticky top-0 z-50 border-b border-white/10 bg-black/30 backdrop-blur-2xl">
+
+    <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+
+      <div class="flex items-center gap-3">
+
+        <div class="w-11 h-11 rounded-2xl bg-lime-400 text-black flex items-center justify-center font-black text-lg glow">
+          G
+        </div>
+
+        <div>
+          <h1 class="text-2xl font-black tracking-tight text-lime-300">
+            GreenLime SMP
+          </h1>
+
+          <p class="text-xs text-white/40">
+            Survival • Community • Adventure
+          </p>
+        </div>
+
+      </div>
+
+      <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+        <a href="index.html" class="hover:text-lime-300 transition">Home</a>
+        <a href="About.html" class="hover:text-lime-300 transition">About</a>
+        <a href="gallery.html" class="hover:text-lime-300 transition">Gallery</a>
+        <a href="join.html" class="text-lime-300">Join</a>
+        <a href="Server-det.html" class="hover:text-lime-300 transition">Server</a>
+        <a href="trades.html" class="hover:text-lime-300 transition">Server Trades</a>
+      </div>
+
+    </div>
+
+  </nav>
+
+  <!-- Hero -->
+  <section class="relative hero-grid overflow-hidden">
+
+    <div class="max-w-7xl mx-auto px-6 py-24 lg:py-32">
+
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+        <!-- LEFT -->
+        <div>
+
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-8">
+            <div class="w-2 h-2 rounded-full bg-lime-400 animate-pulse"></div>
+
+            <span class="text-sm text-lime-200">
+              Access The GreenLime SMP
+            </span>
+          </div>
+
+          <h2 class="text-5xl md:text-7xl font-black leading-tight mb-8">
+            Join The
+            <span class="text-lime-400">
+              Adventure
+            </span>
+          </h2>
+
+          <p class="text-lg text-white/60 leading-relaxed max-w-2xl mb-10">
+            Login or create your GreenLime SMP account to access
+            your dashboard, receive updates, and join the server.
+          </p>
+
+          <div class="grid sm:grid-cols-2 gap-5">
+
+            <div class="glass rounded-3xl p-6">
+              <p class="text-white/40 text-sm mb-2">
+                Server Version
+              </p>
+
+              <h3 class="text-2xl font-black text-lime-300">
+                Java 1.18.2
+              </h3>
+            </div>
+
+            <div class="glass rounded-3xl p-6">
+              <p class="text-white/40 text-sm mb-2">
+                Access Type
+              </p>
+
+              <h3 class="text-2xl font-black text-lime-300">
+                Reserved for Registered Users
+              </h3>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- RIGHT -->
+        <div>
+
+          <div class="glass rounded-[2rem] p-8 glow">
+
+            <!-- Tabs -->
+            <div class="flex gap-3 mb-8">
+
+              <button
+                onclick="showLogin()"
+                id="loginTab"
+                class="flex-1 py-3 rounded-2xl tab-active transition-all">
+                Login
+              </button>
+
+              <button
+                onclick="showSignup()"
+                id="signupTab"
+                class="flex-1 py-3 rounded-2xl bg-white/5 text-white transition-all">
+                Signup
+              </button>
+
+            </div>
+
+            <!-- LOGIN -->
+            <form id="loginForm" class="space-y-5">
+
+              <div>
+                <label class="block text-sm text-white/60 mb-2">
+                  Username
+                </label>
+
+                <input
+                  id="loginUser"
+                  type="text"
+                  required
+                  class="input"
+                  placeholder="Enter username"
+                />
+              </div>
+
+              <div>
+                <label class="block text-sm text-white/60 mb-2">
+                  Password
+                </label>
+
+                <input
+                  id="loginPass"
+                  type="password"
+                  required
+                  class="input"
+                  placeholder="Enter password"
+                />
+              </div>
+
+              <script src="forgot.js"></script>
+
+              <p
+                onclick="forgotpass()"
+                class="text-sm text-lime-300 cursor-pointer hover:text-lime-200 transition">
+                Forgot Password?
+              </p>
+
+              <button
+                type="button"
+                onclick="handleLogin()"
+                class="w-full bg-lime-400 hover:bg-lime-300 text-black font-bold py-4 rounded-2xl transition-all duration-300 glow">
+                Login
+              </button>
+
+            </form>
+
+            <!-- SIGNUP -->
+            <form id="signupForm" class="space-y-5 hidden">
+
+              <div>
+                <label class="block text-sm text-white/60 mb-2">
+                  Full Name
+                </label>
+
+                <input
+                  id="signuprname"
+                  type="text"
+                  required
+                  class="input"
+                  placeholder="Enter your name"
+                />
+              </div>
+
+              <div>
+                <label class="block text-sm text-white/60 mb-2">
+                  TL Username
+                </label>
+
+                <input
+                  id="signupUser"
+                  type="text"
+                  required
+                  class="input"
+                  placeholder="Choose username"
+                />
+              </div>
+
+              <div>
+                <label class="block text-sm text-white/60 mb-2">
+                  Password
+                </label>
+
+                <input
+                  id="signupPass"
+                  type="password"
+                  required
+                  class="input"
+                  placeholder="Create password"
+                />
+              </div>
+
+              <div>
+                <label class="block text-sm text-white/60 mb-2">
+                  Email Address
+                </label>
+
+                <input
+                  id="signupemail"
+                  type="email"
+                  required
+                  class="input"
+                  placeholder="player@example.com"
+                />
+              </div>
+
+              <button
+                type="button"
+                onclick="handleSignup()"
+                class="w-full bg-lime-400 hover:bg-lime-300 text-black font-bold py-4 rounded-2xl transition-all duration-300 glow">
+                Create Account
+              </button>
+
+            </form>
+
+            <p id="message" class="text-center text-sm text-white/50 mt-6"></p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+  <br><br>
+  <!-- Dashboard -->
+  <section id="dashboard" class="hidden px-6 pb-28">
+
+    <div class="max-w-7xl mx-auto">
+
+      <div class="glass rounded-[2.5rem] p-8 md:p-10 glow">
+
+        <!-- Header -->
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-10">
+
+          <div>
+            <div class="inline-flex px-4 py-2 rounded-full bg-lime-400/10 border border-lime-400/20 text-lime-300 text-sm mb-5">
+              PLAYER DASHBOARD
+            </div>
+
+            <h2 class="text-4xl md:text-5xl font-black">
+              Welcome Back
+            </h2>
+          </div>
+
+          <script src="delscript.js"></script>
+
+          <div class="flex gap-4">
+
+  <button
+    onclick="editpf()"
+    class="hidden px-6 py-3 rounded-2xl font-semibold bg-lime-400 text-black hover:bg-lime-300 transition-all glow">
+    ✏️ Edit Profile
+  </button>
+
+  <!---->
+  <button
+    onclick="delprofile()"
+    class="hidden px-6 py-3 rounded-2xl font-semibold bg-red-700 hover:bg-red-600 transition-all">
+    🗑️ Delete Profile
+  </button>
+
+  <button
+    onclick="logout()"
+    class="px-6 py-3 rounded-2xl font-semibold bg-red-500 hover:bg-red-400 transition-all">
+    🚪 Logout
+  </button>
+
+</div>
+
+        </div>
+
+        <!-- Info Grid -->
+        <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
+
+          <div class="dashboard-card">
+            <p class="text-white/40 text-sm mb-2">Name</p>
+            <p id="playerName" class="text-2xl font-bold">-</p>
+          </div>
+
+          <div class="dashboard-card">
+            <p class="text-white/40 text-sm mb-2">TL Username</p>
+            <p id="playerUName" class="text-2xl font-bold">-</p>
+          </div>
+
+          <div class="dashboard-card">
+            <p class="text-white/40 text-sm mb-2">Email</p>
+            <p id="playerEmail" class="text-2xl font-bold">-</p>
+          </div>
+
+          <div class="dashboard-card">
+            <p class="text-white/40 text-sm mb-2">Approval Status</p>
+            <p id="appstatus" class="text-2xl font-bold text-lime-300">-</p>
+          </div>
+
+          <div class="dashboard-card">
+            <p class="text-white/40 text-sm mb-2">Player UUID</p>
+            <p id="playeruuid" class="text-lg break-all">-</p>
+          </div>
+
+          <div class="dashboard-card">
+            <p class="text-white/40 text-sm mb-2">Note</p>
+            <p id="relmesg" class="text-lg">-</p>
+          </div>
+
+        </div>
+
+        <!-- Notifications -->
+        <div class="mt-10">
+
+          <div class="glass rounded-[2rem] p-8">
+
+            <div class="flex items-center justify-between mb-6">
+
+              <div>
+                <h3 class="text-3xl font-black text-lime-300">
+                  📩 Admin Messages
+                </h3>
+
+                <p class="text-white/40 mt-1">
+                  Updates and notifications from server admins.
+                </p>
+              </div>
+
+            </div>
+
+            <div
+              id="notificationholder"
+              class="space-y-4 max-h-[350px] overflow-y-auto pr-2">
+
+              <p id="hifea" class="text-white/40">
+                Your inbox is empty
+              </p>
+
+              <script src="notification-loader.js"></script>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- Edit Profile Modal -->
+  <div id="editProfileModal"
+       class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm">
+
+    <div class="w-full max-w-lg mx-4 glass rounded-[2rem] p-8 relative animate-fadeIn glow">
+
+      <button
+        onclick="closeEditProfile()"
+        class="absolute top-5 right-5 text-white/50 hover:text-red-400 text-2xl">
+        ✕
+      </button>
+
+      <h2 class="text-3xl font-black text-lime-300 mb-2">
+        Edit Profile
+      </h2>
+
+      <p class="text-white/45 mb-8">
+        Update your GreenLime SMP account details.
+      </p>
+
+      <div class="space-y-5">
+
+        <div>
+          <label class="block text-sm text-white/60 mb-2">
+            Full Name
+          </label>
+
+          <input type="text" id="editName" class="input"/>
+        </div>
+
+        <div>
+          <label class="block text-sm text-white/60 mb-2">
+            TL Username
+          </label>
+
+          <input type="text" id="editUsername" class="input"/>
+        </div>
+
+        <div>
+          <label class="block text-sm text-white/60 mb-2">
+            Email Address
+          </label>
+
+          <input type="email" id="editEmail" class="input"/>
+        </div>
+
+        <div class="bg-white/5 border border-white/5 rounded-2xl p-5 text-sm text-white/50 leading-relaxed">
+          To edit your password, log out and use the forgot password option.
+        </div>
+
+        <div class="flex justify-end gap-4 pt-2">
+
+          <button
+            onclick="closeEditProfile()"
+            class="px-5 py-3 rounded-2xl bg-white/5 hover:bg-white/10 transition-all">
+            Cancel
+          </button>
+
+          <button
+            onclick="saveProfileChanges()"
+            class="px-6 py-3 rounded-2xl font-bold bg-lime-400 text-black hover:bg-lime-300 transition-all glow">
+            💾 Save
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Email Modal -->
+  <div id="emailModal"
+       class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm">
+
+    <div class="relative w-full max-w-3xl mx-4 glass rounded-[2rem] overflow-hidden animate-fadeIn glow">
+
+      <!-- Header -->
+      <div class="px-8 py-6 border-b border-white/10 bg-black/20">
+
+        <button
+          onclick="closeEmailModal()"
+          class="absolute top-5 right-6 text-white/50 hover:text-red-400 text-2xl">
+          ✕
+        </button>
+
+        <h2 id="emailSubject"
+            class="text-3xl font-black text-lime-300 pr-10">
+          Email Subject
+        </h2>
+
+        <div class="mt-5 text-sm text-white/50 space-y-1">
+          <p>
+            From:
+            <span id="emailFrom" class="text-white">
+              Admin Team
+            </span>
+          </p>
+
+          <p>
+            Date:
+            <span id="emailDate" class="text-white">
+              -
+            </span>
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Body -->
+      <div id="emailBody"
+           class="px-8 py-8 text-white/70 leading-relaxed whitespace-pre-wrap max-h-[500px] overflow-y-auto">
+        Email content goes here...
+      </div>
+
+      <!-- Footer -->
+      <div class="px-8 py-5 border-t border-white/10 bg-black/20 flex justify-end">
+
+        <button
+          onclick="closeEmailModal()"
+          class="px-6 py-3 rounded-2xl font-bold bg-lime-400 text-black hover:bg-lime-300 transition-all glow">
+          Close
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Scripts -->
+  <script src="signup-logic.js"></script>
+  <script src="login-logic.js"></script>
+
+  <script>
+    function showSignup() {
+      document.getElementById('loginForm').classList.add('hidden');
+      document.getElementById('signupForm').classList.remove('hidden');
+
+      document.getElementById('loginTab').classList.remove('tab-active');
+      document.getElementById('signupTab').classList.add('tab-active');
+    }
+
+    function showLogin() {
+      document.getElementById('signupForm').classList.add('hidden');
+      document.getElementById('loginForm').classList.remove('hidden');
+
+      document.getElementById('signupTab').classList.remove('tab-active');
+      document.getElementById('loginTab').classList.add('tab-active');
+    }
+
+    function showDashboard() {
+      document.querySelector('section').classList.add('hidden');
+      document.getElementById('dashboard').classList.remove('hidden');
+    }
+
+    function logout() {
+      localStorage.removeItem('token')
+      location.reload()
+    }
+
+    function editpf() {
+      document.getElementById('editProfileModal').classList.remove('hidden');
+    }
+
+    function closeEditProfile() {
+      document.getElementById('editProfileModal').classList.add('hidden');
+    }
+
+    function saveProfileChanges() {
+
+    }
+
+    function openEmailModal(subject, from, date, body) {
+      document.getElementById('emailSubject').textContent = subject || 'No Subject';
+      document.getElementById('emailFrom').textContent = from || 'Admin Team';
+      document.getElementById('emailDate').textContent = date || '-';
+      document.getElementById('emailBody').textContent = body || 'No content available.';
+
+      document.getElementById('emailModal').classList.remove('hidden');
+    }
+
+    function closeEmailModal() {
+      document.getElementById('emailModal').classList.add('hidden');
+    }
+  </script>
+
+</body>
+</html>
